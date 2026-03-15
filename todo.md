@@ -19,16 +19,16 @@
 - [x] Open project in VS Code / Android Studio.
 
 ### Initialize Git
-- [ ] Create Git repository.
-- [ ] Commit initial project.
+- [x] Create Git repository.
+- [x] Commit initial project.
 - [ ] Push to GitHub.
 
 ### Clean default project
-- [ ] Remove demo counter code.
-- [ ] Setup basic app structure.
+- [x] Remove demo counter code.
+- [x] Setup basic app structure.
 
 ## Phase 3 — Create Proper Architecture
-- [ ] Create folder structure immediately:
+- [x] Create folder structure immediately:
   - `models/`
   - `services/`
   - `providers/`
@@ -38,59 +38,75 @@
   - `effects/`
 
 ## Phase 4 — Install Required Packages
-- [ ] Add dependencies in `pubspec.yaml`:
+- [x] Add dependencies in `pubspec.yaml`:
   - `cached_network_image`
   - `provider`
   - `shimmer`
   - `flutter_svg`
-- [ ] Run `flutter pub get`
-- [ ] Test project builds successfully
+- [x] Run `flutter pub get`
+- [x] Test project builds successfully
 
 ## Phase 5 — Create Data Models
 ### Post Model
-- [ ] postId, username, userAvatar, imageUrls (List), caption, likes, isLiked, isSaved, timestamp
+- [x] postId, username, userAvatar, imageUrls (List), caption, likes, isLiked, isSaved, timestamp
 ### User Model
-- [ ] username, avatar, isStorySeen
-- [ ] Ensure models support multiple images and interaction state
+- [x] username, avatar
+- [x] Ensure models support multiple images and interaction state
 
 ## Phase 6 — Mock Data Repository
-- [ ] Create `PostRepository` class.
-- [ ] Implement method `Future<List<Post>> fetchPosts(int page)`
-- [ ] Add 1.5 second artificial delay.
-- [ ] Return mock data list.
-- [ ] Generate random post images from URLs.
+- [x] Create `PostRepository` class.
+- [x] Implement method `Future<List<Post>> fetchPosts(int page)`
+- [x] Add 1.5 second artificial delay.
+- [x] Return basic hardcoded mock data list (with unique IDs added per page for infinite scroll).
 
 ## Phase 7 — State Management Setup
-- [ ] Create `FeedProvider` with Provider.
-- [ ] Manage post list, loading state, pagination, like/save toggle.
-- [ ] Add provider to `main.dart`.
+Choose one: Provider / Riverpod / Bloc
+
+Implementation checklist:
+- [x] Create `FeedProvider`
+- [x] Manage:
+  - [x] post list
+  - [x] loading state
+  - [x] pagination
+  - [x] like/save toggle
+- [x] Add provider to `main.dart`
 
 ## Phase 8 — Build App Layout
-- [ ] Scrollable feed (Scaffold > ListView > StoriesTray, PostCard)
-- [ ] Lazy loading support
-- [ ] Smooth scroll physics
+### HomeFeedScreen
+Structure:
+```
+Scaffold
+ └ ListView
+      ├ StoriesTray
+      ├ PostCard
+      ├ PostCard
+```
+Checklist:
+- [x] Scrollable feed
+- [x] Lazy loading support
+- [x] Smooth scroll physics
 
 ## Phase 9 — Build Top Bar
-- [ ] Instagram logo
-- [ ] notification icon
-- [ ] message icon
-- [ ] correct spacing, icon sizes, safe area handling
+- [x] Instagram logo
+- [x] notification icon
+- [x] message icon
+- [x] correct spacing, icon sizes, safe area handling
 
 ## Phase 10 — Stories Tray
-- [ ] implement horizontal ListView
-- [ ] create `StoryAvatar` widget
-- [ ] spacing identical to Instagram, gradient border, username text
+- [x] implement horizontal ListView
+- [x] create `StoryAvatar` widget
+- [x] spacing identical to Instagram, gradient border, username text
 
 ## Phase 11 — Post Card Layout
-- [ ] PostHeader (avatar, username, more options)
-- [ ] PostMedia (image/carousel)
-- [ ] PostActions (like, comment, share, save)
-- [ ] PostCaption (username, caption, timestamp)
+- [x] PostHeader (avatar, username, more options)
+- [x] PostMedia (image/carousel)
+- [x] PostActions (like, comment, share, save)
+- [x] PostCaption (username, caption, timestamp)
 
 ## Phase 12 — Carousel Support
-- [ ] Implement `PageView`
-- [ ] Horizontal swipe, Smooth animation
-- [ ] Create `CarouselIndicator` widget (dot indicator)
+- [x] Implement `PageView`
+- [x] Horizontal swipe, Smooth animation
+- [x] Create `CarouselIndicator` widget (dot indicator)
 
 ## Phase 13 — Pinch to Zoom Feature
 - [ ] Detect pinch gesture
@@ -99,29 +115,29 @@
 - [ ] Animate back when released
 
 ## Phase 14 — Stateful Interactions
-- [ ] Like Button: Toggle state, Animate heart
-- [ ] Save Button: Toggle bookmark state
-- [ ] State should persist while scrolling.
+- [x] Like Button: Toggle state, Animate heart
+- [x] Save Button: Toggle bookmark state
+- [x] State should persist while scrolling.
 
 ## Phase 15 — Snackbar for Unimplemented Buttons
-- [ ] show custom snackbar for comment and share
-- [ ] auto disappear after few seconds
+- [x] show custom snackbar for comment and share
+- [x] auto disappear after few seconds
 
 ## Phase 16 — Image Loading Strategy
-- [ ] Use `cached_network_image`
-- [ ] Add placeholder and error widget
+- [x] Use `cached_network_image`
+- [x] Add placeholder and error widget
 
 ## Phase 17 — Shimmer Loading State
-- [ ] Create `ShimmerPostCard`
-- [ ] Display shimmer placeholders
-- [ ] Replace with real posts after load
+- [x] Create `ShimmerPostCard`
+- [x] Display shimmer placeholders
+- [x] Replace with real posts after load
 
 ## Phase 18 — Infinite Scroll Pagination
-- [ ] Detect scroll position with ScrollController
-- [ ] When 2 posts before end, load more
+- [x] Detect scroll position with ScrollController
+- [x] When 2 posts before end, load more
 
 ## Phase 19 — Edge Case Handling
-- [ ] network image failure, empty feed, loading state, slow loading, pagination loading indicator
+- [x] network image failure, empty feed, loading state, slow loading, pagination loading indicator
 
 ## Phase 20 — Performance Optimization
 - [ ] Use `const` widgets, `RepaintBoundary`, `ListView.builder`, avoid rebuilds
