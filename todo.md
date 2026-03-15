@@ -140,16 +140,4 @@ Checklist:
 - [x] network image failure, empty feed, loading state, slow loading, pagination loading indicator
 
 ## Phase 20 — Performance Optimization
-- [ ] Use `const` widgets, `RepaintBoundary`, `ListView.builder`, avoid rebuilds
-
-## Phase 21 — UI Pixel Perfection Pass
-- [ ] Verify padding, sizes, typography, etc.
-
-## Phase 22 — Create README
-- [ ] Write documentation
-
-## Phase 23 — Record Demo Video
-- [ ] Demo interactions and implementation
-
-## Phase 24 — Final Submission Checklist
-- [ ] Verify all requirements are met
+- [x] Use `const` widgets, `RepaintBoundary`, `ListView.builder`, avoid rebuilds

@@ -6,12 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:instagram_feed_clone/providers/feed_provider.dart';
 import 'package:pinch_to_zoom_scrollable/pinch_to_zoom_scrollable.dart';
 
-
 class PostMedia extends StatefulWidget {
   final Post post;
-
   const PostMedia({super.key, required this.post});
-
   @override
   State<PostMedia> createState() => _PostMediaState();
 }
@@ -19,11 +16,9 @@ class PostMedia extends StatefulWidget {
 class _PostMediaState extends State<PostMedia> {
   int _currentIndex = 0;
   bool isLikeAnimating = false;
-
   @override
   Widget build(BuildContext context) {
     final imageUrls = widget.post.imageUrls;
-
     if (imageUrls.isEmpty) {
       return Container(
         color: Colors.grey[200],
@@ -33,7 +28,6 @@ class _PostMediaState extends State<PostMedia> {
         ),
       );
     }
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -50,6 +44,7 @@ class _PostMediaState extends State<PostMedia> {
               },
               itemBuilder: (context, index) {
                 return PinchToZoomScrollableWidget(
+                  maxScale: 3,
                   child: GestureDetector(
                     onDoubleTap: () {
                       final provider = context.read<FeedProvider>();
@@ -68,6 +63,7 @@ class _PostMediaState extends State<PostMedia> {
                             imageUrl: imageUrls[index],
                             fit: BoxFit.cover,
                             fadeInDuration: const Duration(milliseconds: 100),
+                            memCacheWidth: 600,
                             errorWidget: (context, url, error) => const Center(
                               child: Icon(Icons.error, color: Colors.red),
                             ),
@@ -99,12 +95,9 @@ class _PostMediaState extends State<PostMedia> {
             ),
           ),
         ),
-
         if (imageUrls.length > 1)
           Padding(
-            padding: const EdgeInsets.only(
-              top: 10.0,
-            ),
+            padding: const EdgeInsets.only(top: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
@@ -116,9 +109,8 @@ class _PostMediaState extends State<PostMedia> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _currentIndex == index
-                        ? Colors
-                              .blueAccent 
-                        : Colors.grey[300], 
+                        ? Colors.blueAccent
+                        : Colors.grey[300],
                   ),
                 ),
               ),

@@ -3,7 +3,6 @@ import 'package:shimmer/shimmer.dart';
 
 class ShimmerPostCard extends StatelessWidget {
   const ShimmerPostCard({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,7 +39,6 @@ class ShimmerPostCard extends StatelessWidget {
               ],
             ),
           ),
-
           Shimmer.fromColors(
             baseColor: Colors.grey[300]!,
             highlightColor: Colors.grey[100]!,
@@ -49,7 +47,6 @@ class ShimmerPostCard extends StatelessWidget {
               child: Container(color: Colors.white),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -68,7 +65,6 @@ class ShimmerPostCard extends StatelessWidget {
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14.0),
             child: Column(

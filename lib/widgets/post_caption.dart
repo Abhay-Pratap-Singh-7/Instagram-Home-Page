@@ -3,9 +3,7 @@ import 'package:instagram_feed_clone/models/post_model.dart';
 
 class PostCaption extends StatelessWidget {
   final Post post;
-
   const PostCaption({super.key, required this.post});
-
   String _getTimeAgo(DateTime timestamp) {
     final difference = DateTime.now().difference(timestamp);
     if (difference.inDays > 0) {
@@ -23,7 +21,7 @@ class PostCaption extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 14.0),
       child: Column(
@@ -31,20 +29,21 @@ class PostCaption extends StatelessWidget {
         children: [
           RichText(
             text: TextSpan(
-              style: const TextStyle(color: Colors.black, fontSize: 13, height: 1.3),
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+                height: 1.3,
+              ),
               children: [
                 TextSpan(
                   text: '${post.username} ',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                TextSpan(
-                  text: post.caption,
-                ),
+                TextSpan(text: post.caption),
               ],
             ),
           ),
           const SizedBox(height: 6),
-
           Text(
             _getTimeAgo(post.timestamp),
             style: const TextStyle(

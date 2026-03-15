@@ -8,73 +8,81 @@ import 'package:instagram_feed_clone/utils/snackbar_util.dart';
 
 class PostActions extends StatelessWidget {
   final Post post;
-
   const PostActions({super.key, required this.post});
-
   @override
   Widget build(BuildContext context) {
+    final postState = context
+        .select<FeedProvider, ({int likes, bool isLiked, bool isSaved})>(
+          (provider) =>
+              (likes: post.likes, isLiked: post.isLiked, isSaved: post.isSaved),
+        );
     final provider = context.read<FeedProvider>();
-
     final numberFormat = NumberFormat('#,###');
-
     return Padding(
       padding: const EdgeInsets.all(1.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment
-            .spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               IconButton(
                 onPressed: () => provider.toggleLike(post.postId),
                 icon: LikeAnimation(
-                  isAnimating: post.isLiked,
+                  isAnimating: postState.isLiked,
                   smallLike: true,
-                  child: Icon(
-                    post.isLiked ? Icons.favorite : Icons.favorite_border,
-                    color: post.isLiked
-                        ? Colors.red
-                        : Colors.black,
-                    size: 28,
+                  child: Image.asset(
+                    postState.isLiked
+                        ? 'assets/Icons/Like (Filled).png'
+                        : 'assets/Icons/Like.png',
+                    color: postState.isLiked ? Colors.red : Colors.black,
+                    width: 28,
+                    height: 28,
                   ),
                 ),
               ),
-              Text(
-                numberFormat.format(post.likes),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 13,
+              RepaintBoundary(
+                child: Text(
+                  numberFormat.format(postState.likes),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
                 ),
               ),
               IconButton(
                 onPressed: () {
                   SnackbarUtil.showUnimplementedFeature(context, 'Comments');
                 },
-                icon: const Icon(
-                  Icons.chat_bubble_outline,
+                icon: Image.asset(
+                  'assets/Icons/Comment.png',
                   color: Colors.black,
-                  size: 26,
+                  width: 26,
+                  height: 26,
                 ),
               ),
               IconButton(
                 onPressed: () {
                   SnackbarUtil.showUnimplementedFeature(context, 'Share');
                 },
-                icon: const Icon(
-                  Icons.send_outlined,
+                icon: Image.asset(
+                  'assets/Icons/Share.png',
                   color: Colors.black,
-                  size: 26,
+                  width: 26,
+                  height: 26,
                 ),
               ),
             ],
           ),
           IconButton(
             onPressed: () => provider.toggleSave(post.postId),
-            icon: Icon(
-              post.isSaved ? Icons.bookmark : Icons.bookmark_border,
+            icon: Image.asset(
+              postState.isSaved
+                  ? 'assets/Icons/Save (Filled).png'
+                  : 'assets/Icons/Save.png',
               color: Colors.black,
-              size: 28,
+              width: 28,
+              height: 28,
             ),
           ),
         ],

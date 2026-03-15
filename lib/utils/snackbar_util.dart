@@ -6,9 +6,7 @@ class SnackbarUtil {
     String featureName,
   ) {
     final messenger = ScaffoldMessenger.of(context);
-
     messenger.hideCurrentSnackBar();
-
     messenger.showSnackBar(
       SnackBar(
         content: Row(
@@ -28,13 +26,10 @@ class SnackbarUtil {
           ],
         ),
         backgroundColor: Colors.black87,
-        behavior:
-            SnackBarBehavior.floating, 
+        behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         margin: const EdgeInsets.all(12),
-        duration: const Duration(
-          seconds: 2,
-        ), 
+        duration: const Duration(seconds: 2),
         action: SnackBarAction(
           label: 'OK',
           textColor: Colors.blueAccent,

@@ -9,13 +9,10 @@ void main() {
 
 class InstagramFeedApp extends StatelessWidget {
   const InstagramFeedApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => FeedProvider()),
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => FeedProvider())],
       child: const MaterialApp(
         title: 'Instagram Feed Clone',
         home: HomeFeedScreen(),

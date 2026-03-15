@@ -8,7 +8,6 @@ class Post {
   bool isLiked;
   bool isSaved;
   final DateTime timestamp;
-
   Post({
     required this.postId,
     required this.username,

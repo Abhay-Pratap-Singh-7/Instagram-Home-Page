@@ -11,15 +11,12 @@ class FeedProvider extends ChangeNotifier {
   List<Post> get posts => _posts;
   bool get isLoading => _isLoading;
   bool get isFetchingMore => _isFetchingMore;
-  
   FeedProvider() {
     _loadInitialPosts();
   }
-
   Future<void> _loadInitialPosts() async {
     _isLoading = true;
     notifyListeners();
-
     try {
       final newPosts = await _repository.fetchPosts(_currentPage);
       _posts.addAll(newPosts);
@@ -27,17 +24,14 @@ class FeedProvider extends ChangeNotifier {
     } catch (e) {
       debugPrint('Error loading initial posts: $e');
     }
-
     _isLoading = false;
     notifyListeners();
   }
 
   Future<void> fetchMorePosts() async {
     if (_isFetchingMore || _isLoading) return;
-
     _isFetchingMore = true;
     notifyListeners();
-
     try {
       final newPosts = await _repository.fetchPosts(_currentPage);
       _posts.addAll(newPosts);
@@ -45,9 +39,8 @@ class FeedProvider extends ChangeNotifier {
     } catch (e) {
       debugPrint('Error fetching more posts: $e');
     }
-
     _isFetchingMore = false;
-    notifyListeners(); 
+    notifyListeners();
   }
 
   void toggleLike(String postId) {
@@ -55,7 +48,6 @@ class FeedProvider extends ChangeNotifier {
     if (postIndex != -1) {
       final post = _posts[postIndex];
       post.isLiked = !post.isLiked;
-
       if (post.isLiked) {
         post.likes++;
       } else {

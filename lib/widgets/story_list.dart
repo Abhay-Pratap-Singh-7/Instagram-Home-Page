@@ -46,9 +46,7 @@ class StoryList extends StatelessWidget {
 
     return Container(
       height: 130,
-      decoration: const BoxDecoration(
-        color:Colors.white,
-      ),
+      decoration: const BoxDecoration(color: Colors.white),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
 
