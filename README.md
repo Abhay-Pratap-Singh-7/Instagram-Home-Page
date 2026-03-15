@@ -6,11 +6,7 @@ A feature-rich, deeply customized Flutter application that meticulously replicat
 
 ## 🎥 Demo Video
 
-> **[Insert Demo Video Link Here]**  
-> *Alternatively, embed a GIF of the app in action below:*
-> 
-> <br/>
-> <img src="assets/demo_placeholder.gif" width="300" alt="App Demo Video" />
+> [Watch the demo](https://youtube.com/shorts/jooinD7309o?feature=share)
 
 ---
 
@@ -18,11 +14,9 @@ A feature-rich, deeply customized Flutter application that meticulously replicat
 
 A side-by-side comparison of this clone against the original Instagram application.
 
-| **My App (Flutter Clone)** | **Original Instagram App** |
+| **Original Instagram App** | **My App (Instagram Clone)** |
 | :---: | :---: |
-| <img src="assets/my_app_screenshot.png" width="300" alt="My App Screenshot" /> | <img src="assets/instagram_screenshot.png" width="300" alt="Instagram App Screenshot" /> |
-
-*(Note: Replace the `src` paths with the actual paths to your screenshots)*
+| <img src="Screenshot_2026-03-16-01-52-35-75_1c337646f29875672b5a61192b9010f9.jpg" width="300" alt="My App Screenshot" /> | <img src="Screenshot_2026-03-16-01-52-52-13_b506faf8199221c4c2177ee80ef74732.jpg" width="300" alt="Instagram App Screenshot" /> |
 
 ---
 
